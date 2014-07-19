@@ -1,5 +1,5 @@
 {
-  "name": "hubot-travisci-notification",
+  "name": "hubot-pivotaltracker-notification",
   "description": "A hubot script that does the things",
   "version": "0.0.0",
   "author": "TAKAHASHI Kazunari <takahashi@1syo.net>",
@@ -17,7 +17,7 @@
   },
 
   "dependencies": {
-    "coffee-script": "~1.6"
+    "coffee-script": "*"
   },
 
   "devDependencies": {
