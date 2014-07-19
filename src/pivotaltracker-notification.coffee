@@ -1,22 +1,26 @@
 # Description
-#   A hubot script that does the things
+#   <description of the scripts functionality>
+#
+# Dependencies:
+#   "<module name>": "<module version>"
 #
 # Configuration:
 #   LIST_OF_ENV_VARS_TO_SET
-#
-# Commands:
-#   hubot hello - <what the respond trigger does>
-#   orly - <what the hear trigger does>
 #
 # Notes:
 #   <optional notes required for the script>
 #
 # Author:
-#   TAKAHASHI Kazunari[@<org>]
-
+#   <github username of the original script author>
+Postman = require "./postman"
 module.exports = (robot) ->
-  robot.respond /hello/, (msg) ->
-    msg.reply "hello!"
-
-  robot.hear /orly/, ->
-    msg.send "yarly"
+  robot.router.post "/#{robot.name}/pivotaltracker/:room", (req, res) ->
+    try
+      postman = Postman.create(req, robot)
+      if postman.deliverable()
+        postman.deliver()
+        res.end "[PivotalTracker] Sending message"
+      else
+        res.end ""
+    catch e
+      res.end "[PivotalTracker] #{e}"
