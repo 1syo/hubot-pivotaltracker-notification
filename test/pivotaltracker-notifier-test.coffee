@@ -1,20 +1,18 @@
 Robot = require("hubot/src/robot")
 
 chai = require 'chai'
-sinon = require 'sinon'
-chai.use require 'sinon-chai'
 expect = chai.expect
 request = require 'supertest'
-fs = require 'fs'
+
 valid_json = require './fixtures/valid.json'
 invalid_json = require './fixtures/invalid.json'
 
-describe 'pivotaltracker-notification', ->
+describe 'pivotaltracker-notifier', ->
   robot = null
   beforeEach (done) ->
     robot = new Robot null, 'mock-adapter', yes, 'hubot'
     robot.adapter.on 'connected', ->
-      require("../src/pivotaltracker-notification")(robot)
+      require("../src/pivotaltracker-notifier")(robot)
       adapter = @robot.adapter
       done()
     robot.run()
@@ -37,7 +35,7 @@ describe 'pivotaltracker-notification', ->
       .send(invalid_json)
       .expect(200)
       .end (err, res) ->
-        expect(res.text).to.eq ""
+        expect(res.text).to.eq "[PivotalTracker] TypeError: Cannot read property 'name' of undefined"
         throw err if err
         done()
 
