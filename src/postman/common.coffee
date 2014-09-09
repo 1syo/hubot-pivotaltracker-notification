@@ -1,5 +1,5 @@
 # Description
-#
+#   None
 Base = require "./base"
 class Common extends Base
   notify: ->
