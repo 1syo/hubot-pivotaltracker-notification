@@ -3,7 +3,6 @@ sinon = require 'sinon'
 chai.use require 'sinon-chai'
 expect = chai.expect
 
-process.env.HUBOT_AIRBRAKE_SUBDOMAIN = "test"
 Postman = require '../src/postman'
 
 valid_json = require './fixtures/valid.json'

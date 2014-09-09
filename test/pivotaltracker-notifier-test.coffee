@@ -9,12 +9,12 @@ fs = require 'fs'
 valid_json = require './fixtures/valid.json'
 invalid_json = require './fixtures/invalid.json'
 
-describe 'pivotaltracker-notification', ->
+describe 'pivotaltracker-notifier', ->
   robot = null
   beforeEach (done) ->
     robot = new Robot null, 'mock-adapter', yes, 'hubot'
     robot.adapter.on 'connected', ->
-      require("../src/pivotaltracker-notification")(robot)
+      require("../src/pivotaltracker-notifier")(robot)
       adapter = @robot.adapter
       done()
     robot.run()

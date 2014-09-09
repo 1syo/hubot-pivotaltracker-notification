@@ -1,24 +1,17 @@
-# hubot-pivotaltracker-notification
+# hubot-pivotaltracker-notifier
 
 A hubot script that does the things
 
-See [`src/pivotaltracker-notification.coffee`](src/pivotaltracker-notification.coffee) for full documentation.
+See [`src/pivotaltracker-notifier.coffee`](src/pivotaltracker-notifier.coffee) for full documentation.
 
 ## Installation
 
 In hubot project repo, run:
 
-`npm install hubot-pivotaltracker-notification --save`
+`npm install hubot-pivotaltracker-notifier --save`
 
-Then add **hubot-pivotaltracker-notification** to your `external-scripts.json`:
+Then add **hubot-pivotaltracker-notifier** to your `external-scripts.json`:
 
 ```json
-["hubot-pivotaltracker-notification"]
-```
-
-## Sample Interaction
-
-```
-user1>> hubot hello
-hubot>> hello!
+["hubot-pivotaltracker-notifier"]
 ```
