@@ -21,7 +21,8 @@ Then add **hubot-pivotaltracker-notifier** to your `external-scripts.json`:
 
 ## PivotalTracker configuration
 
-
+See also:
+http://www.pivotaltracker.com/help/integrations?version=v5#activity_web_hook
 
 ## Notification examples
 

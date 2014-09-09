@@ -1,17 +1,24 @@
 # Description
-#   <description of the scripts functionality>
+#   A hubot script that notify about status in Pivotal Tracker
 #
 # Dependencies:
-#   "<module name>": "<module version>"
+#   None
 #
 # Configuration:
-#   LIST_OF_ENV_VARS_TO_SET
+#   None
+#
+# Commands:
+#   None
+#
+# URLS:
+#   POST /<hubot>/pivotaltracker/<room>
 #
 # Notes:
-#   <optional notes required for the script>
+#    See also:
+#    http://www.pivotaltracker.com/help/integrations?version=v5#activity_web_hook
 #
 # Author:
-#   <github username of the original script author>
+#   TAKAHASHI Kazunari[takahashi@1syo.net]
 Postman = require "./postman"
 module.exports = (robot) ->
   robot.router.post "/#{robot.name}/pivotaltracker/:room", (req, res) ->

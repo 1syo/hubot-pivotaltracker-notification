@@ -1,5 +1,5 @@
 # Description
-#
+#   None
 Base = require "./base"
 class Slack extends Base
   color: ->

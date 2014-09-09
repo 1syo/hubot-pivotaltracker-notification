@@ -1,5 +1,5 @@
 # Description
-#
+#   None
 class Base
   constructor: (@req, @robot) ->
     @json = @req.body
