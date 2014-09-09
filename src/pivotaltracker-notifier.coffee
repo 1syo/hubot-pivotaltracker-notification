@@ -17,8 +17,8 @@ module.exports = (robot) ->
   robot.router.post "/#{robot.name}/pivotaltracker/:room", (req, res) ->
     try
       postman = Postman.create(req, robot)
-      if postman.deliverable()
-        postman.deliver()
+      if postman.notifirable()
+        postman.notify()
         res.end "[PivotalTracker] Sending message"
       else
         res.end ""
