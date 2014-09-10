@@ -1,6 +1,6 @@
 # hubot-pivotaltracker-notifier
 [![wercker status](https://app.wercker.com/status/47bd9e783c1a1224b9fde838756dcb91/s/master "wercker status")](https://app.wercker.com/project/bykey/47bd9e783c1a1224b9fde838756dcb91)
-[![Coverage Status](http://img.shields.io/coveralls/repos/1syo/hubot-pivotaltracker-notifier.svg?style=flat)](https://coveralls.io/r/1syo/hubot-pivotaltracker-notifier)
+[![Coverage Status](http://img.shields.io/coveralls/1syo/hubot-pivotaltracker-notifier.svg?style=flat)](https://coverals.io/r/1syo/hubot-pivotaltracker-notifier)
 [![Dependencies Status](http://img.shields.io/david/1syo/hubot-pivotaltracker-notifier.svg?style=flat)](https://david-dm.org/1syo/hubot-pivotaltracker-notifier)
 
 A hubot script that does the things
