@@ -32,7 +32,7 @@ describe 'Slack', ->
       @postman = new Slack(@req, {})
       expect(@postman.color()).to.eq "#a3243d"
 
-  describe '#text', ->
+  describe '#pretext', ->
     beforeEach ->
       @req =
         params:
@@ -40,6 +40,7 @@ describe 'Slack', ->
         body:
           message: 'Darth Vader accepted this feature'
           primary_resources: [
+            id: 1
             name: 'Never ending story'
             url: 'http://example.com/'
           ]
@@ -47,9 +48,9 @@ describe 'Slack', ->
             name: 'Project X'
       @postman = new Slack(@req, {})
 
-    it 'should be text format', ->
-      expect(@postman.text()).to.eq """
-        [PivotalTracker][Project X] Darth Vader accepted this feature: http://example.com/|Never ending story
+    it 'should be pretext format', ->
+      expect(@postman.pretext()).to.eq """
+        [PivotalTracker] Project X: Darth Vader accepted this feature ( http://example.com/|#1 )
         """
 
   describe '#payload', ->
@@ -61,6 +62,7 @@ describe 'Slack', ->
           highlight: "started"
           message: 'Darth Vader accepted this feature'
           primary_resources: [
+            id: 1
             name: 'Never ending story'
             url: 'http://example.com/'
           ]
@@ -72,7 +74,10 @@ describe 'Slack', ->
       expect(@postman.payload().message.room).to.eq "general"
 
     it '.content.pretext', ->
-      expect(@postman.payload().content.pretext).to.eq @postman.text()
+      expect(@postman.payload().content.pretext).to.eq @postman.pretext()
+
+    it '.content.text', ->
+      expect(@postman.payload().content.text).to.eq @postman.text()
 
     it '.content.color', ->
       expect(@postman.payload().content.color).to.eq "#e0e2e5"
@@ -80,7 +85,7 @@ describe 'Slack', ->
     it '.content.fallback', ->
       expect(@postman.payload().content.fallback).to.eq @postman.notice()
 
-  describe '#payload', ->
+  describe '#notify', ->
     beforeEach ->
       @req =
         params:
@@ -98,7 +103,7 @@ describe 'Slack', ->
       @postman = new Slack(@req, @robot)
       @postman.notify()
 
-    it "#notify", ->
+    it "should call @robot#emi with args", ->
       @postman.notify()
       expect(@robot.emit).to.have.been.calledWith(
         'slack-attachment', @postman.payload()

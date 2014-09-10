@@ -3,7 +3,7 @@
 Base = require "./base"
 class Slack extends Base
   color: ->
-    switch @json.highlight
+    switch @highlight()
       when "started"
         "#e0e2e5"
       when "finished"
@@ -15,15 +15,18 @@ class Slack extends Base
       when "rejected"
         "#a3243d"
 
+  pretext: ->
+    "[PivotalTracker] #{@project_name()}: #{@message()} ( #{@url()}|##{@id()} )"
+
   text: ->
-    "[PivotalTracker][#{@project_name()}] #{@message()}: #{@url()}|#{@story_name()}"
+    @story_name()
 
   payload: ->
     message:
       room: @room()
     content:
-      text: ""
-      pretext: @text()
+      text: @text()
+      pretext: @pretext()
       color: @color()
       fallback: @notice()
 

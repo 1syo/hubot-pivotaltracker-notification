@@ -60,5 +60,5 @@ describe 'Base', ->
 
     it 'should be notice format', ->
       expect(@postman.notice()).to.eq """
-        [PivotalTracker][Project X] Darth Vader accepted this feature: Never ending story (http://example.com/)
+        [PivotalTracker] Project X: Darth Vader accepted this feature - Never ending story (http://example.com/)
         """
